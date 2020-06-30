@@ -3,7 +3,7 @@ import { useState} from 'react'
 import { fetchAdvice, styles } from '../src/utils'
 
 export default function Home({ newAdvice }) {
-    console.log(newAdvice, 'First request is server-rendered...')
+    console.log(newAdvice, "First request is server-rendered and won't change until page refresh")
 
     const [advice, setAdvice] = useState(newAdvice)
 
