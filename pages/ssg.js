@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { fetchAdvice, styles } from '../src/utils'
 
 export default function Home({ newAdvice }) {
-    console.log(newAdvice, "First request is server-rendered and won't change until page refresh")
+    console.log(newAdvice, "This value will never change")
 
     const [advice, setAdvice] = useState(newAdvice)
 
@@ -16,7 +16,7 @@ export default function Home({ newAdvice }) {
     return (
         <div className="container" style={styles}>
             <Head>
-                <title>Server-side Rendering</title>
+                <title>Static Generation</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
@@ -27,7 +27,7 @@ export default function Home({ newAdvice }) {
     )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const newAdvice = await fetchAdvice()
 
     return {
