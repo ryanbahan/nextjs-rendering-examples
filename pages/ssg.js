@@ -2,10 +2,14 @@ import Head from 'next/head'
 import { useState } from 'react'
 import { fetchAdvice, styles } from '../src/utils'
 
+// Advice API has a 5-second debounce in place, which is why you
+// can't repeatedly click 'reset'. To disable this feature, you can disable
+// the cache in your browser.
+
 export default function Home({ newAdvice }) {
     console.log(newAdvice, "This value will never change")
 
-    const [advice, setAdvice] = useState(newAdvice)
+    const [ advice, setAdvice ] = useState(newAdvice)
 
     const getNewAdvice = async () => {
         console.log('Now we are client-side rendering again!')
@@ -20,7 +24,7 @@ export default function Home({ newAdvice }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>
-                <div>{advice}</div>
+                <div>{ advice }</div>
                 <button onClick={() => getNewAdvice()}>Reset</button>
             </main>
         </div>

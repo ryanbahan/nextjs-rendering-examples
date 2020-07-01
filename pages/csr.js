@@ -2,6 +2,10 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import { fetchAdvice, styles } from '../src/utils'
 
+// Advice API has a 5-second debounce in place, which is why you
+// can't repeatedly click 'reset'. To disable this feature, you can disable
+// the cache in your browser.
+
 export default function Home() {
   const [ advice, setAdvice ] = useState()
 
